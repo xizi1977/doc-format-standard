@@ -1,10 +1,10 @@
 # doc-format-standard
 
-一套面向 AI 生产文档的格式、Markdown 清洗、DOCX 排版与去 AI 化行文规范 Skill，适用于 Codex、Manus、Claude Code 等 AI 工具处理文档类任务。
+一套面向 AI 生产文档的格式、Markdown 清洗、DOCX 排版与去 AI 化行文规范 Skill，适用于 Codex、Kimi、Manus、Claude Code 等 AI 工具处理文档类任务。
 
 ## 简介
 
-本 Skill 用于约束 AI 在生成、审查、清洗和转换文档时的行为，重点解决以下问题：
+本 Skill 用于约束 AI 在生成、审查、清洗和转换文档时的行为，可配合 Codex、Kimi、Manus、Claude Code 等工具使用，重点解决以下问题：
 
 - Markdown 转 DOCX 后残留 `#`、`**`、`---`、代码围栏、表格管道符等符号。
 - Word 正文缩进、行距、段前段后、序号格式不统一。
@@ -21,7 +21,7 @@
 - Markdown 转 DOCX / Word。
 - DOCX 格式规范化审查。
 - AI 生成文档的去 AI 化审校。
-- Codex 项目中的文档格式统一约束。
+- Codex / Kimi / Manus / Claude Code 项目中的文档格式统一约束。
 
 ## 规范涵盖内容
 
@@ -66,6 +66,18 @@ project-root/
 5. 将 Markdown 表格转换为真实 Word 表格；
 6. 生成 DOCX 后执行交付前检查；
 7. 不要在聊天界面打印全文，只输出修改摘要和文件路径。
+```
+
+## Kimi 使用方式
+
+将 `SKILL.md`、`AGENTS.md` 或 `templates/markdown-to-docx-prompt.md` 中的规则作为上下文提供给 Kimi，再上传需要处理的 Markdown 文档，让 Kimi 按规则进行清洗、审查或生成转换任务提示词。
+
+推荐给 Kimi 的任务描述：
+
+```text
+请严格按照 doc-format-standard 的文档格式规范，审查并清洗我上传的 Markdown 文档。
+重点检查：Markdown 残留、标题编号、正文缩进、字体字号、黑白正式样式、表格转换、代码块保护区、图表编号和 DOCX 交付前验收项。
+不要改变原文事实和技术内容，只输出问题清单、修改建议和可交付版本。
 ```
 
 ## Manus 使用方式
